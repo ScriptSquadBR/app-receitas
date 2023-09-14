@@ -1,4 +1,4 @@
-export default interface IEmployee {
+export default interface ICollaborator {
   id: number;
   authorId: number;
   recipeId: number;

@@ -1,9 +1,9 @@
 import { Model, QueryInterface, DataTypes } from 'sequelize';
-import IEmployee from '../../interfaces/IEmployee';
+import IEmployee from '../../interfaces/ICollaborator';
 
 export default {
   up(queryInterface: QueryInterface) {
-    return queryInterface.createTable<Model<IEmployee>>('employees', {
+    return queryInterface.createTable<Model<IEmployee>>('collaborators', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -33,6 +33,6 @@ export default {
     });
   },
   down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('employees');
+    return queryInterface.dropTable('collaborators');
   },
 };

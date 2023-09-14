@@ -7,6 +7,9 @@ services:
       - 3000:3000
     working_dir: /frontend
     # Os `healthcheck` devem garantir que a aplicação
+    command: dev
+    volumes: 
+      - ./frontend/src:/frontend/src
     # está operacional, antes de liberar o container
     healthcheck:
       test: ["CMD", "lsof", "-t", "-i:3000"]  # Caso utilize outra porta interna para o front, altere ela aqui também
@@ -19,7 +22,7 @@ services:
       - 3001:3001
     working_dir: /backend
     # Caso queira que o container esteja atualizado durante o desenvolvimento, sem que você precise ficar fazendo down e up dos containers, descomente as 3 linhas abaixo
-    command: npm run dev 
+    command: dev
     volumes: 
       - ./backend/src:/backend/src
     depends_on:
